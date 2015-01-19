@@ -1,0 +1,102 @@
+Wraithaven Sculpt is a plugin designed for Project Rainbow, by TheDudeFromCI. It was created
+for the purpose of easily mass editing a Minecraft world. One thing that separates Wraithaven
+Sculpt from is competitors is the ability to preform all edits without lagging your server. No
+matter how large or small.
+
+=================================
+How to Use Wraithaven Sculpt:
+=================================
+1) Commands:
+	/Sculpt: Access command for
+		# Aliases:
+			- /s
+		* /Sculpt copyclear: Clears all copy points.
+		* /Sculpt copyremove [copy #]: Removes a specific copy point.
+			- Not specifying an edit number will delete the last copy point.
+	/History: Access command for
+		* /History clear: Clears all undo points.
+	/Set [block] [filled (true/false)]: Changes all blocks within the selected area to the specified block.
+		- Defaults to stone, if not specified.
+		- Defaults to filled, if not specified.
+	/Brush <brush>: Allows a brush to be bound to an item. A brush is defined by the brush name, followed by it's parameters.
+		# Aliases:
+			- /br
+			- /b
+	/Copy: Copy's all blocks inside the selected area.
+	/Undo [edit #]: Undoes a specified operation.
+		- Not specifying an edit number will undo the last undo point.
+	/Redo [edit #]: Redoes a specified operation.
+		- Not specifying an edit number will redo the last undo point.
+	/Line [block]: Draws a line of blocks between your two selected points.
+		- Defaults to stone, if not specified.
+	/Flip [axis (x/y/z)]: Flips all blocks within the selected area over the axis you specify.
+		- Defaults to Y Axis, if not specified.
+	/Wand: Gives use the current selection tool (currently set to minecraft:wooden_axe)
+2) Brushes:
+	-----
+	(All brushes can be used as a stand alone command. It will simply use your location, instead of the block you're looking at.
+	For example, you could either use "/brush sphere grass" or "/sphere grass".)
+	-----
+	Sphere [block] [radius] [filled (true/false)]: Creates a sphere.
+		- Block defaults to stone, if not specified.
+		- Radius defaults to 3, if not specified.
+		- Filled defaults to true, if not specified.
+	Cylinder [block] [radius] [height] [direction (x+/y+/z+/x-/y-/z-)] [filled (true/false)]: Creates a cylinder.
+		- Block defaults to stone, if not specified.
+		- Radius defaults to 3, if not specified.
+		- Height defaults to 1, if not specified.
+		- Direction defaults to Y+, if not specified.
+		- Filled defaults to true, if not specified.
+	Torus [block] [major radius] [minor radius] [filled (true/false)] [axis (x/y/z)]: Creates a torus.
+		- Block defaults to stone, if not specified.
+		- Major Radius defaults to 15, if not specified.
+		- Minor Radius defaults to 5, if not specified.
+		- Filled defaults to true, if not specified.
+		- Axis defaults to Y, if not specified.
+	Box [block] [X Length] [Y Length] [Z Length] [filled (true/false)]: Creates a box.
+		- Block defaults to stone, if not specified.
+		- X Length defaults to 3, if not specified.
+		- Y Length defaults to 3, if not specified.
+		- Z Length defaults to 3, if not specified.
+		- Filled defaults to true, if not specified.
+	Paste [copy #]: Pastes a copy point.
+		- If copy number not specified, it uses the last object copied.
+	Smooth [radius] [iterations] [check low map]: Smooths out an area, top down.
+		- Radius defaults to 4, if not specified.
+		- Iterations is the number of times that the plugin will attempt to smooth the area. Lower number means more jagged, higher is more smooth.
+			Anything over 6 iterators doesn't seem to have much of a change.
+			Defaults to 4, if not specified.
+		- Check low map means that the plugin will take the lowest points of the the area into account. It will not place any blocks
+			below these points. Defaults to true, if not specified.
+	Replace [block to] [radius] [block from]: Replaces all nearby blocks of the type to another.
+		- Blocks To defaults to stone, if not specified.
+		- Radius defaults to 3, if not specified.
+		- If Blocks From is not specified, ALL non-air blocks will be replaced.
+	Naturalize [radius]: Replaces and reorders all nearby grass, dirt, and stone blocks to make them look more natural.
+		- Radius defaults to 5, if not specified.
+3) Copy and Undo Points:
+	-----
+	Copy, Paste, Undo, and Redo are done slightly different then from what you're used to.
+	-----
+	* Copy/Paste: For copy and paste, all objects copied are saved to file instead of to clipboard. This method has several advantages.
+		- Unlimited objects can be copied at once.
+		- Multiple objects can be copied and pasted at once, in any order.
+		- Copying large structures won't chew up server RAM.
+		- Objects copied won't be lost if the server restarts or crashes.
+		- Schematics can be saved for days, weeks, or even years if you want.
+		- Schematics can be traded between to servers. (Rename to the next number so the plugin can find it properly!)
+	* Undo/Redo: For undo and redo, all edits made create an "undo point." An undo point is file that stores a list of blocks changed.
+		Both before, and after the edit. The advantages of this system:
+		- Unlined undo points.
+		- Undo or redo in any order.
+		- Won't waste server RAM trying to remember everything it just did.
+		- Undo or redo edits you made days ago.
+		- You can use redo to rebuild a damaged area, if it's saved. :)
+				For this one, just copy the entire area, delete it all, and paste it again in the same location. Keep note of the edit
+				number!
+4) Permissions:
+	** Currently not available! Only OPs have permission to use anything. **
+5) Selecting Points:
+	Point selection, (also referred to as chisel locations) are two points you select for use be several commands.
+	Selecting points can be done by taking a wooden axe, and clicking on the blocks you wish to select. Left clicking
+	sets point 1. Right clicking sets point 2.

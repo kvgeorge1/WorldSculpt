@@ -1,0 +1,8 @@
+v1.2
+	- Fixed NPE when doing /set command
+v1.1
+	- Fixed NPE during Torus creation
+	- Replaced all references of WraithavenSculpt with WorldSculpt
+	- Added support for /wand command
+v1.0
+	- Initial release.
